@@ -2,7 +2,6 @@
 #include "Contact.class.hpp"
 
 Contact::Contact(void) {
-    this->firstName = "empty";
     return;
 }
 
