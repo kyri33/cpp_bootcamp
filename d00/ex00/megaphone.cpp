@@ -18,10 +18,10 @@ int     main(int argc, char **argv)
 {
     if (argc < 2)
     {
-        std::cout << "* LOUD AND UNBEARABLE FEEEDBACK NOISE *\n";
+        std::cout << "* LOUD AND UNBEARABLE FEEEDBACK NOISE *" << std::endl;
         return (1);
     }
     for (int i = 1; i < argc; i++)
         print_upper(argv[i]);
-    std::cout << "\n";
+    std::cout << std::endl;
 }
