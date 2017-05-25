@@ -19,8 +19,8 @@ class Fixed {
         float   toFloat(void) const;
         int     toInt(void) const;
         Fixed & operator=(Fixed const & rhs);
-        bool operator>(Fixed const &rhs);
-        bool operator<(Fixed const & rhs);
+        bool operator>(Fixed const &rhs) const;
+        bool operator<(Fixed const & rhs) const;
         bool operator<=(Fixed const & rhs);
         bool operator>=(Fixed const & rhs);
         bool operator==(Fixed const & rhs);
@@ -33,6 +33,10 @@ class Fixed {
         Fixed & operator--(void);
         Fixed operator*(Fixed const & rhs) const;
         Fixed operator/(Fixed const & rhs) const;
+        static Fixed const &    max(Fixed & a, Fixed & b);
+        static Fixed const &    min(Fixed &a, Fixed &b);
+        static Fixed const &    max(const Fixed & a, const Fixed & b);
+        static Fixed const &    min(const Fixed & a, const Fixed & b);
 };
 
 std::ostream &  operator<<(std::ostream & o, Fixed const & rhs);

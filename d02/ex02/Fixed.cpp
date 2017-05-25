@@ -56,11 +56,11 @@ std::ostream &  operator<<(std::ostream & o, Fixed const & rhs) {
     return o;
 }
 
-bool     Fixed::operator>(Fixed const & rhs) {
+bool     Fixed::operator>(Fixed const & rhs) const {
     return (this->_fpValue > rhs.getRawBits());
 }
 
-bool     Fixed::operator<(Fixed const &rhs) {
+bool     Fixed::operator<(Fixed const &rhs) const {
     return (this->_fpValue < rhs.getRawBits());
 }
 
@@ -89,11 +89,11 @@ Fixed     Fixed::operator-(Fixed const &rhs) const {
 }
 
 Fixed     Fixed::operator*(Fixed const &rhs) const {
-    return Fixed((this->_fpValue * rhs.getRawBits()) / (1 << _bits));
+    return Fixed(((float) this->_fpValue / (1 << _bits)) * ((float)rhs.getRawBits() / (1 << _bits)));
 }
 
 Fixed     Fixed::operator/(Fixed const &rhs) const {
-    return Fixed((this->_fpValue / rhs.getRawBits()) / (1 << _bits));
+    return Fixed(((float) this->_fpValue / (1 << _bits)) / ((float)rhs.getRawBits() / (1 << _bits)));
 }
 
 Fixed &   Fixed::operator++(void) {
@@ -116,6 +116,34 @@ Fixed       Fixed::operator--(int) {
     Fixed temp = Fixed(*this);
     this->_fpValue = this->_fpValue - 1;
     return temp;
+}
+
+Fixed const &     Fixed::max(Fixed & a, Fixed & b) {
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
+Fixed const &     Fixed::max(Fixed const & a, Fixed const & b) {
+    if (a > b)
+        return a;
+    else
+        return b;
+}
+
+Fixed const &     Fixed::min(Fixed & a, Fixed & b) {
+    if (a < b)
+        return a;
+    else
+        return b;
+}
+
+Fixed const &     Fixed::min(Fixed const & a, Fixed const & b) {
+    if (a < b)
+        return a;
+    else
+        return b;
 }
 
 const int   Fixed::_bits = 8;
