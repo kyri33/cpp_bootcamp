@@ -25,6 +25,9 @@
         "ostream": "cpp",
         "streambuf": "cpp",
         "__locale": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "fstream": "cpp",
+        "__functional_03": "cpp",
+        "functional": "cpp"
     }
 }
