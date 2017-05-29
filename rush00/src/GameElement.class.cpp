@@ -33,11 +33,11 @@ GameElement::~GameElement() {
 }
 
 void GameElement::move_x(int dir) {
-    this->_x += this->_Velocity * dir;
+    this->_x += 1 * dir;
 }
 
 void GameElement::move_y(int dir) {
-    this->_y += this->_Velocity * dir;
+    this->_y += 1 * dir;
 }
 
 int     GameElement::getX() {
@@ -58,10 +58,4 @@ char* GameElement::getName() {
 
 void    GameElement::setVelocity(int vel) {
     this->_Velocity = vel;
-}
-
-GameElement*    GameElement::shoot() {
-    GameElement* bullet = new GameElement(this->_x + 1, this->_y, '-');
-    bullet->setVelocity(2);
-    return bullet; // TODO ALOT
 }

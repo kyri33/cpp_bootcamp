@@ -6,6 +6,7 @@
 #include <ctime>
 
 class GameElement {
+protected:
     int     _x;
     int     _y;
     int     _Velocity;
@@ -25,8 +26,8 @@ class GameElement {
         int         getVelocity(void);
         void         setVelocity(int vel);
         char*        getName(void);
-        GameElement*    shoot(void); //TODO ADD TO PLAYER CLASS
         GameElement *next;
+        GameElement *prev;
 };
 
 #endif
